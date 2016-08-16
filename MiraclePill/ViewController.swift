@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    // Above, implementing two protocols (UIPickerViewDataSource and UIPickerViewDelegate) which tells the data sources (statePicker.dataSource = self and statePicker.delegate = self) that the statePicker in the View should talk to this View Controller whenever it needs a Title, Number of Rows, was a Row selected, etc. and that the View Controller will handle that job.
+    
     @IBOutlet weak var statePicker: UIPickerView!
     @IBOutlet weak var statePickerBtn: UIButton!
     
@@ -18,7 +20,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         statePicker.dataSource = self
         statePicker.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        // statePicker.delegate acts on behalf of the statePicker and handles the things that the statePicker wants to do.
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +30,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     @IBAction func stateBtnPressed(_ sender: AnyObject) {
         statePicker.isHidden = false
+        // Shows statePicker when statePickerBtn is pressed.
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -44,6 +47,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statePickerBtn.setTitle(states[row], for: UIControlState()) //Should be UIControlState.normal
         statePicker.isHidden = true
+        // When state is selected, statePickerBtn is hidden and title is set on the statePicker Btn.
     }
 
     
