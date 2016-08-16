@@ -13,6 +13,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBOutlet weak var statePicker: UIPickerView!
     @IBOutlet weak var statePickerBtn: UIButton!
+    @IBOutlet weak var countryLbl: UILabel!
+    @IBOutlet weak var countryTxt: UITextField!
+    @IBOutlet weak var zipLbl: UILabel!
+    @IBOutlet weak var zipTxt: UITextField!
     
     let states = ["Arkansas","Illinois", "Florida", "California","Maine","New York"]
     
@@ -30,8 +34,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     @IBAction func stateBtnPressed(_ sender: AnyObject) {
         statePicker.isHidden = false
+        countryLbl.isHidden = true
+        countryTxt.isHidden = true
+        zipLbl.isHidden = true
+        zipTxt.isHidden = true
+
         // Shows statePicker when statePickerBtn is pressed.
     }
+    
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -47,6 +58,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statePickerBtn.setTitle(states[row], for: UIControlState()) //Should be UIControlState.normal
         statePicker.isHidden = true
+        countryLbl.isHidden = false
+        countryTxt.isHidden = false
+        zipLbl.isHidden = false
+        zipTxt.isHidden = false
         // When state is selected, statePickerBtn is hidden and title is set on the statePicker Btn.
     }
 
