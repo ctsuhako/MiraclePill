@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miraclePillEmoji" translatesAutoresizingMaskIntoConstraints="NO" id="qzT-Za-Dre">
@@ -87,10 +87,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAe-Pf-rMW">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="IQG-JM-N6C"/>
-                                    <constraint firstAttribute="height" constant="5" id="UQe-oa-NwF"/>
+                                    <constraint firstAttribute="height" constant="12" id="UQe-oa-NwF"/>
                                 </constraints>
                                 <state key="normal" title="Choose Your State"/>
+                                <connections>
+                                    <action selector="stateBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Hp-6h-VVP"/>
+                                </connections>
                             </button>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-yx-Grs">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="J7B-Nj-5AC"/>
+                                    <constraint firstAttribute="width" constant="240" id="Nbw-BY-EEj"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -114,10 +123,12 @@
                             <constraint firstItem="eXH-6V-axa" firstAttribute="leading" secondItem="v6u-ZE-lPB" secondAttribute="leading" id="Yrc-d3-s0A"/>
                             <constraint firstItem="dkf-ZS-N8F" firstAttribute="top" secondItem="QfA-p8-KHA" secondAttribute="bottom" constant="8" id="ZT4-dC-ZDA"/>
                             <constraint firstItem="dkf-ZS-N8F" firstAttribute="leading" secondItem="QfA-p8-KHA" secondAttribute="leading" id="a15-rV-ime"/>
+                            <constraint firstItem="baJ-yx-Grs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aK2-aA-9yL"/>
                             <constraint firstItem="QfA-p8-KHA" firstAttribute="top" secondItem="V8L-hh-DRI" secondAttribute="bottom" constant="10" id="b1J-Er-cYu"/>
                             <constraint firstItem="OlS-J1-VMN" firstAttribute="centerX" secondItem="qzT-Za-Dre" secondAttribute="centerX" id="bV4-ce-gOf"/>
                             <constraint firstItem="yAe-Pf-rMW" firstAttribute="leading" secondItem="AJ4-Nx-aTw" secondAttribute="leading" id="cj8-Bh-PH4"/>
                             <constraint firstItem="eXH-6V-axa" firstAttribute="top" secondItem="v6u-ZE-lPB" secondAttribute="bottom" constant="8" id="eCQ-j3-LWN"/>
+                            <constraint firstItem="baJ-yx-Grs" firstAttribute="top" secondItem="yAe-Pf-rMW" secondAttribute="bottom" constant="8" id="epW-zy-c6e"/>
                             <constraint firstItem="v6u-ZE-lPB" firstAttribute="top" secondItem="dkf-ZS-N8F" secondAttribute="bottom" constant="8" id="feQ-4G-mwZ"/>
                             <constraint firstItem="V8L-hh-DRI" firstAttribute="top" secondItem="OlS-J1-VMN" secondAttribute="bottom" constant="8" id="g1N-fI-IOb"/>
                             <constraint firstItem="AJ4-Nx-aTw" firstAttribute="leading" secondItem="xaT-1F-iwk" secondAttribute="leading" id="nkx-w8-Bh7"/>
@@ -129,6 +140,10 @@
                             <constraint firstItem="aU9-zI-Y0m" firstAttribute="trailing" secondItem="eXH-6V-axa" secondAttribute="trailing" id="zvq-jd-wxZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="statePicker" destination="baJ-yx-Grs" id="OIC-Zr-Qpd"/>
+                        <outlet property="statePickerBtn" destination="yAe-Pf-rMW" id="Atf-m6-s5c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
